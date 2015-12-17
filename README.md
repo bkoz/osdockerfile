@@ -1,2 +1,2 @@
 # osdockerfile
-OpenShift Dockerfile example
+A Simple OpenShift Dockerfile example
