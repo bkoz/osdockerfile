@@ -16,4 +16,3 @@ RUN chmod -R a+rwx /run/httpd /etc/httpd/logs
 USER 1001
 CMD /bin/bash -c 'echo Starting Microservice... ; \
 /usr/sbin/httpd -DFOREGROUND || echo Apache start failed: $?'
-CMD /bin/bash -c 'echo Started Apache... ; \
