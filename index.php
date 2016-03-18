@@ -19,9 +19,9 @@ error_reporting(E_ERROR);
 
 $host = getenv("MYSQL_PORT_3306_TCP_ADDR");
 $port = getenv("MYSQL_PORT_3306_TCP_PORT");
-$database = getenv("MYSQL_DATABASE");
-$username = getenv("MYSQL_USER");
-$password = getenv("MYSQL_PASSWORD");
+$database = getenv("MYSQL_ENV_MYSQL_DATABASE");
+$username = getenv("MYSQL_ENV_MYSQL_USER");
+$password = getenv("MYSQL_ENV_MYSQL_PASSWORD");
 
 echo "Connection info: ";
 echo "<br> host = ", $host, "<br> port = " , $port, "<br> user = ", $username;
