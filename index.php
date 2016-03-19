@@ -40,6 +40,7 @@ if ($conn) {
   echo "Database is available <br/>";
   $sql = "CREATE TABLE visitors (
           id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+          remoteip VARCHAR(15) NOT NULL,
           containerip VARCHAR(15) NOT NULL,
           visitstamp VARCHAR(30) NOT NULL)";
   if (mysqli_query($conn, $sql)) {
@@ -50,8 +51,8 @@ if ($conn) {
 
   $containerip = $_SERVER['SERVER_ADDR'];
   $visitstamp = date("D M j G:i:s T Y");
-  $sql = "INSERT INTO visitors (containerip, visitstamp)
-          VALUES ('$containerip', '$visitstamp')";
+  $sql = "INSERT INTO visitors (remoteip, containerip, visitstamp)
+          VALUES ('$remoteip', '$containerip', '$visitstamp')";
 
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully <br/>";
@@ -60,12 +61,12 @@ if ($conn) {
   }
 
   echo "<h3> Visitor Log </h3>";
-  $sql = "SELECT id, containerip, visitstamp FROM visitors";
+  $sql = "SELECT id, remoteip, containerip, visitstamp FROM visitors";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
-    echo "<table><tr><th>Id</th><th>Container</th><th>Timestamp</th></tr>";
+    echo "<table><tr><th>Id</th><th>Remote IP</th><th>Container IP</th><th>Timestamp</th></tr>";
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["containerip"] . "</td><td>" . $row["visitstamp"] . "</td></tr>";
+        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["remoteip"] . "</td><td>" . $row["containerip"] . "</td><td>" . $row["visitstamp"] . "</td></tr>";
     }
     echo "</table>";
   } else {
