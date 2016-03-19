@@ -24,10 +24,6 @@ $username = getenv("MYSQL_ENV_MYSQL_USER");
 $password = getenv("MYSQL_ENV_MYSQL_PASSWORD");
 
 $remoteip = $_SERVER['REMOTE_ADDR'];
-echo "<br>";
-echo "Remote ip = ", $remoteip;
-echo "<br>";
-echo "<br>";
 
 echo "Database connection info: ";
 echo "<br> host = ", $host, "<br> port = " , $port, "<br> user = ", $username;
