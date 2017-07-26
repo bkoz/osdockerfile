@@ -9,7 +9,7 @@ and deploy into OpenShift.
 
 ```oc new-app myapp```
 
-Or even easier...
+Or even easier except does not add the Dockerfile contents into the build configuration.
 
 ```oc new-app .```
 
