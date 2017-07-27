@@ -9,7 +9,8 @@ and deploy into OpenShift.
 
 ```oc new-app myapp```
 
-Or even easier except does not add the Dockerfile contents into the build configuration.
+Or even easier except does not add the Dockerfile contents into the build configuration. I also found this approach
+cause certain lines in the Dockerfile to be skipped due to caching (bug?).
 
 ```oc new-app .```
 
