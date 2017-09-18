@@ -15,7 +15,7 @@ RUN echo "Sample page is test.html" >> /var/www/html/test.html
 RUN chmod -R a+rwx /run/httpd /etc/httpd/logs
 
 # OSE ignores uid. Image should work with any, that's why rwx above
-USER 1001
+USER 0
 CMD /bin/bash -c 'echo Starting Microservice... ; \
 env ;\
 /usr/sbin/httpd -DFOREGROUND || echo Apache start failed: $?'
