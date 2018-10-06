@@ -17,7 +17,7 @@ RUN tar xf /usr/tmp/oc.tar.gz && mv oc /usr/local/bin && rm /usr/tmp/oc.tar.gz
 #
 ### Setup user for build execution and application runtime
 ENV APP_ROOT=/opt/app-root
-RUN mkdir -p ${APP_ROOT}
+RUN mkdir -p ${APP_ROOT}/{bin,src}
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 # COPY bin/ ${APP_ROOT}/bin/
 # RUN chmod -R u+x ${APP_ROOT}/bin && \
