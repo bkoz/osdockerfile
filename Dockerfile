@@ -30,7 +30,7 @@ USER 10001
 WORKDIR ${APP_ROOT}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
-ENTRYPOINT [ "uid_entrypoint" ]
+# ENTRYPOINT [ "uid_entrypoint" ]
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
 # CMD run
 CMD /usr/bin/tail -f /dev/null
