@@ -5,7 +5,7 @@
 #
 FROM docker.io/openshift/base-centos7
 MAINTAINER Bob Kozdemba <bkozdemba@gmail.com>
-EXPOSE 8080
+# EXPOSE 8080
 ENV VERSION=3.10.53
     
 ### Setup user for build execution and application runtime
