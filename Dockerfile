@@ -15,7 +15,7 @@ RUN mkdir -p ${APP_ROOT}/{bin,src} && \
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 
 # Install oc client binary
-RUN yum -y install git wget bash-completion && yum clean all -y
+RUN yum -y install git bash-completion && yum clean all -y
 RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${VERSION}/linux/oc.tar.gz | tar zxf - -O > ${APP_ROOT}/bin/oc && \
     chmod u=rwx,g=rx,o=rx ${APP_ROOT}/bin/oc
     
