@@ -1,5 +1,7 @@
 #
-# Dockerfile
+# Dockerfile for Centos7 with OpenShift client.
+#
+# Reference: https://github.com/RHsyseng/container-rhel-examples
 #
 FROM docker.io/openshift/base-centos7
 MAINTAINER Bob Kozdemba <bkozdemba@gmail.com>
