@@ -24,3 +24,7 @@ docker exec -it centos7-rngd bash
 # rngd --random-device=/dev/random --rng-device=/dev/urandom
 # cat /proc/sys/kernel/random/entropy_avail
 ```
+### It is also used to provide an OpenShift client in a pod or container.
+
+A webhook is setup to push to quay.io/bkoz/centos
+
