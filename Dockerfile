@@ -1,12 +1,13 @@
 #
-# Dockerfile for Centos7 with OpenShift client.
+# Dockerfile for OpenShift clients.
 #
 # Reference: https://github.com/RHsyseng/container-rhel-examples
 #
 FROM docker.io/openshift/base-centos7
 MAINTAINER Bob Kozdemba <bkozdemba@gmail.com>
 # EXPOSE 8080
-ENV VERSION=3.10.53
+ENV OC_VERSION=3.10.53
+ENV ODO_VERSION=v0.0.13
     
 ### Setup user for build execution and application runtime
 ENV APP_ROOT=/opt/app-root
@@ -14,11 +15,13 @@ RUN mkdir -p ${APP_ROOT}/{bin,src} && \
     chmod -R u+x ${APP_ROOT}/bin && chgrp -R 0 ${APP_ROOT} && chmod -R g=u ${APP_ROOT}
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 
-# Install oc client binary
-RUN yum -y install git bash-completion && yum clean all -y
-RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${VERSION}/linux/oc.tar.gz | tar zxf - -O > ${APP_ROOT}/bin/oc && \
-    chmod u=rwx,g=rx,o=rx ${APP_ROOT}/bin/oc
-    
+# Install OCP client binaries.
+RUN yum -y install git wget bash-completion && yum clean all -y
+RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${OC_VERSION}/linux/oc.tar.gz | tar zxf - -O > ${APP_ROOT}/bin/oc && \
+    wget https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -O ${APP_ROOT}/bin/odo && \    
+    chmod u=rwx,g=rx,o=rx ${APP_ROOT}/bin/{oc,odo}
+
+
 ### Containers should NOT run as root as a good practice
 USER 10001
 WORKDIR ${APP_ROOT}
