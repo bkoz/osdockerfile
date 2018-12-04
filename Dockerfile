@@ -23,7 +23,7 @@ RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${OC_VERSION}/lin
 
 
 ### Containers should NOT run as root as a good practice
-USER 10001
+USER 1001
 WORKDIR ${APP_ROOT}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
