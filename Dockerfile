@@ -17,7 +17,8 @@ RUN mkdir -p ${APP_ROOT}/{bin,src} && \
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 
 # Install OCP client binaries.
-RUN yum -y install git wget bash-completion && yum clean all -y
+# RUN yum -y install git wget bash-completion && yum clean all -y
+RUN yum -y install git wget && yum clean all -y
 RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${OC_VERSION}/linux/oc.tar.gz | tar zxf - -O > ${APP_ROOT}/bin/oc && \
     wget https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -O ${APP_ROOT}/bin/odo && \    
     chmod u=rwx,g=rx,o=rx ${APP_ROOT}/bin/{oc,odo}
