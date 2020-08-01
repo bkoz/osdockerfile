@@ -3,7 +3,8 @@
 #
 # Reference: https://github.com/RHsyseng/container-rhel-examples
 #
-FROM docker.io/openshift/base-centos7
+# FROM docker.io/openshift/base-centos7
+FROM registry.access.redhat.com/ubi8/ubi
 MAINTAINER Bob Kozdemba <bkozdemba@gmail.com>
 # EXPOSE 8080
 ENV OC_VERSION=3.10.53
@@ -23,8 +24,8 @@ RUN curl https://mirror.openshift.com/pub/openshift-v3/clients/${OC_VERSION}/lin
 
 
 ### Containers should NOT run as root as a good practice
-# USER 1001
-USER 0
+USER 1001
+# USER 0
 WORKDIR ${APP_ROOT}
 
 ### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
