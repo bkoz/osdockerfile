@@ -16,7 +16,7 @@ ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 # Install OCP client binaries.
 # RUN yum -y install git wget bash-completion && yum clean all -y
 RUN yum -y install git wget && yum clean all -y
-RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz | tar zxf - && mv oc kubectl ${APP_ROOT}/bin \
+RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz | tar zxf - && \
     wget https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -O ${APP_ROOT}/bin/odo && \    
     chmod u=rwx,g=rx,o=rx ${APP_ROOT}/bin/{oc,odo}
 
