@@ -1,5 +1,5 @@
 #
-# Dockerfile for OpenShift clients.
+# Build a UBI-based container image with OpenShift clients.
 #
 # Reference: https://github.com/RHsyseng/container-rhel-examples
 #
