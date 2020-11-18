@@ -3,7 +3,6 @@
 #
 # Reference: https://github.com/RHsyseng/container-rhel-examples
 #
-# FROM docker.io/openshift/base-centos7
 FROM registry.access.redhat.com/ubi8/ubi
 MAINTAINER Bob Kozdemba <bkozdemba@gmail.com>
     
